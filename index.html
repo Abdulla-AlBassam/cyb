@@ -1,0 +1,1379 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>CYB – Share. Learn. Play.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Pixel-style font for the CYB logo -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-wrap">
+
+    <!-- ========= LOGIN ========= -->
+    <section id="view-login" class="view view--active">
+      <div class="auth-panel">
+        <div class="auth-logo">
+          <div class="auth-logo-circle">
+            <span class="auth-logo-text">cyb</span>
+          </div>
+          <p class="auth-tagline">Secure sign‑in</p>
+        </div>
+
+        <h1 class="auth-title">Welcome back</h1>
+
+        <div class="auth-fields">
+          <label class="field-label">
+            Email
+            <input id="login-email" type="email" placeholder="you@example.com" />
+          </label>
+
+          <label class="field-label">
+            Password
+            <input id="login-pass" type="password" placeholder="Your password" />
+          </label>
+
+          <p id="login-msg" class="auth-message"></p>
+
+          <button id="login-btn" class="btn btn--primary btn--full">Log in</button>
+          <button type="button" class="btn btn--ghost btn--full" onclick="showView('signup')">
+            Need an account? Sign up
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= SIGN UP ========= -->
+    <section id="view-signup" class="view">
+      <div class="auth-panel">
+        <div class="auth-logo">
+          <div class="auth-logo-circle">
+            <span class="auth-logo-text">cyb</span>
+          </div>
+          <p class="auth-tagline">Create a learning profile</p>
+        </div>
+
+        <h1 class="auth-title">Sign up</h1>
+
+        <div class="auth-fields">
+          <label class="field-label">
+            Email
+            <input id="signup-email" type="email" placeholder="you@example.com" />
+          </label>
+
+          <label class="field-label">
+            Password
+            <input id="signup-pass" type="password" placeholder="At least 6 characters" />
+          </label>
+
+          <p id="signup-msg" class="auth-message"></p>
+
+          <button id="signup-btn" class="btn btn--primary btn--full">Create account</button>
+          <button type="button" class="btn btn--ghost btn--full" onclick="showView('login')">
+            Already registered? Log in
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========= HOME ========= -->
+    <section id="view-home" class="view">
+      <header class="app-header">
+        <div class="brand">
+          <div class="brand-logo-circle">
+            <span class="brand-logo-text">cyb</span>
+          </div>
+          <div class="brand-text">
+            <div class="brand-title-row">
+              <span class="brand-word">C</span>
+              <span class="brand-word">Y</span>
+              <span class="brand-word">B</span>
+            </div>
+            <p class="brand-signed">
+              Signed in as <span id="signed-email">someone@example.com</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="icon-strip">
+          <button class="icon-pill" data-view="home" title="Home">🏠</button>
+          <button class="icon-pill" data-view="quickfacts" title="Quick facts">📚</button>
+          <button class="icon-pill" data-view="forums" title="Community forums">💬</button>
+          <button class="icon-pill" data-view="favorites" title="Favourites">⭐</button>
+          <button class="icon-pill" data-view="settings" title="Settings / Account">👤</button>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div class="hero-logo">cyb</div>
+        <div class="hero-banner">SHARE . LEARN . PLAY.</div>
+      </section>
+
+      <!-- Home menu -->
+      <section class="card card--menu">
+        <h2 class="card-heading">Home Menu</h2>
+
+        <div class="menu-grid">
+          <!-- Quick Facts -->
+          <button class="menu-card menu-card--pair" data-view="quickfacts">
+            <div class="menu-text">
+              <h3>Quick Facts</h3>
+              <p>Browse topics and a daily random fact.</p>
+            </div>
+            <span class="menu-arrow">›</span>
+          </button>
+
+          <!-- Online Play -->
+          <button class="menu-card menu-card--pair" data-view="online">
+            <div class="menu-text">
+              <h3>Online Play</h3>
+              <p>Fast quiz modes to test knowledge.</p>
+            </div>
+            <span class="menu-arrow">›</span>
+          </button>
+
+          <!-- Offline Play -->
+          <button class="menu-card menu-card--pair" data-view="offline">
+            <div class="menu-text">
+              <h3>Offline Play</h3>
+              <p>Activities that work away from screens.</p>
+            </div>
+            <span class="menu-arrow">›</span>
+          </button>
+
+          <!-- Community Challenges -->
+          <button class="menu-card menu-card--pair" data-view="community">
+            <div class="menu-text">
+              <h3>Community Challenges</h3>
+              <p>Group tasks for classes and clubs.</p>
+            </div>
+            <span class="menu-arrow">›</span>
+          </button>
+
+          <!-- Gauge My Level -->
+          <button class="menu-card menu-card--long" data-view="gauge">
+            <div class="menu-text">
+              <h3>Gauge My Level</h3>
+              <p>Understand your level and next steps.</p>
+            </div>
+            <div class="menu-shape menu-shape--gauge"></div>
+            <span class="menu-arrow">›</span>
+          </button>
+
+          <!-- Certification Hub -->
+          <button class="menu-card menu-card--long" data-view="cert">
+            <div class="menu-text">
+              <h3>Certification Hub</h3>
+              <p>Explore routes into further study.</p>
+            </div>
+            <div class="menu-shape menu-shape--cert"></div>
+            <span class="menu-arrow">›</span>
+          </button>
+
+          <!-- Custom Community Game -->
+          <button class="menu-card menu-card--long" data-view="custom">
+            <div class="menu-text">
+              <h3>Custom Community Game</h3>
+              <p>Design and record your own games.</p>
+            </div>
+            <div class="menu-shape menu-shape--custom"></div>
+            <span class="menu-arrow">›</span>
+          </button>
+
+          <!-- Community Forums -->
+          <button class="menu-card menu-card--long" data-view="forums">
+            <div class="menu-text">
+              <h3>Community Forums</h3>
+              <p>Browse chats and saved discussion threads.</p>
+            </div>
+            <div class="menu-shape menu-shape--forums"></div>
+            <span class="menu-arrow">›</span>
+          </button>
+
+          <!-- Cyber Threat Database -->
+          <button class="menu-card menu-card--long" data-view="threats">
+            <div class="menu-text">
+              <h3>Cyber Threat Database</h3>
+              <p>Overview of common cyber‑attack types.</p>
+            </div>
+            <div class="menu-shape menu-shape--threats"></div>
+            <span class="menu-arrow">›</span>
+          </button>
+
+          <!-- Software Center -->
+          <button class="menu-card menu-card--long" data-view="software">
+            <div class="menu-text">
+              <h3>Software Center</h3>
+              <p>Types of tools that help protect systems.</p>
+            </div>
+            <div class="menu-shape menu-shape--software"></div>
+            <span class="menu-arrow">›</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Gauge summary card -->
+      <section class="card card--gauge-summary">
+        <div class="card-bar-header">
+          <h2>Gauge My Level</h2>
+          <span id="summary-level-pill" class="pill pill--dark">Level 1</span>
+        </div>
+
+        <div class="xp-line">
+          <span id="summary-xp-label">0 XP</span>
+          <span id="summary-goal-label" class="xp-goal">Goal: Protect myself</span>
+        </div>
+
+        <div class="xp-bar xp-bar--slim">
+          <div id="xp-fill" class="xp-bar-fill"></div>
+        </div>
+
+        <p id="summary-xp-caption" class="muted">0 / 20 XP to next level.</p>
+      </section>
+    </section>
+
+    <!-- ========= QUICK FACTS ========= -->
+    <section id="view-quickfacts" class="view">
+      <section class="card">
+        <div class="top-nav">
+          <button class="top-nav-back" onclick="showView('home')">←</button>
+          <div class="top-nav-icons">
+            <span>📚</span><span>⭐</span><span>💬</span>
+          </div>
+        </div>
+
+        <h2 class="card-heading">Quick Facts</h2>
+
+        <h3>Browse learning topics</h3>
+        <p class="muted">
+          Short, plain‑English explanations of key ideas. Tap a topic to explore it during a lesson or revision.
+        </p>
+
+        <div class="topic-grid">
+          <button class="topic-pill">What is a firewall?</button>
+          <button class="topic-pill">How strong passwords protect you</button>
+          <button class="topic-pill">Staying safe on public Wi‑Fi</button>
+          <button class="topic-pill">Recognising phishing attacks</button>
+          <button class="topic-pill">Multi‑factor authentication</button>
+          <button class="topic-pill">Why software updates matter</button>
+        </div>
+
+        <div id="quickfact-topic-detail" class="card-inner">
+          <p><strong>Select a topic above</strong> to see a short explanation here.</p>
+        </div>
+
+        <h3>Daily random topic</h3>
+        <div class="card-inner">
+          <p><strong>Today’s topic:</strong> Phishing and suspicious messages.</p>
+          <p>
+            Phishing messages copy real brands and try to trick you into clicking a link or giving away details.
+            Check the sender address, hover over links, and be cautious of messages that pressure you to act quickly.
+          </p>
+        </div>
+
+        <h3>Community questions</h3>
+        <div class="card-inner">
+          <p>
+            Learners can note questions they want to ask later in class, such as “How do I know if a Wi‑Fi network
+            is safe?” or “What should I do if I’ve clicked a suspicious link?”.
+          </p>
+          <p class="muted">
+            In a full system, this section would link to the Community Forums and show your saved questions.
+          </p>
+        </div>
+
+        <button class="btn" onclick="showView('home')">Back to Home</button>
+      </section>
+    </section>
+
+    <!-- ========= ONLINE PLAY ========= -->
+    <section id="view-online" class="view">
+      <section class="card">
+        <div class="top-nav">
+          <button class="top-nav-back" onclick="showView('home')">←</button>
+          <div class="top-nav-icons">
+            <span>🎮</span><span>⚡</span><span>🏆</span>
+          </div>
+        </div>
+
+        <h2 class="card-heading">Online Play</h2>
+
+        <p>
+          Choose an online game mode. These are fast, classroom‑friendly activities that fit into a
+          short starter or recap.
+        </p>
+
+        <div class="list-stack">
+          <button class="list-row game-row" data-online-game="lightning">
+            <div>
+              <div class="game-row-title">Lightning Round</div>
+              <div class="game-row-sub">Fast‑paced 60‑second quiz. Most correct answers wins.</div>
+            </div>
+            <span class="badge">⚡</span>
+          </button>
+
+          <button class="list-row game-row" data-online-game="capture">
+            <div>
+              <div class="game-row-title">Capture The Flag</div>
+              <div class="game-row-sub">
+                Scenario‑based quiz across different topics. Earn points for safe choices.
+              </div>
+            </div>
+            <span class="badge">🚩</span>
+          </button>
+
+          <button class="list-row game-row" data-online-game="quizswap">
+            <div>
+              <div class="game-row-title">Quiz Swap</div>
+              <div class="game-row-sub">
+                Short challenge where learners explain answers in their own words.
+              </div>
+            </div>
+            <span class="badge">🔁</span>
+          </button>
+        </div>
+
+        <div id="online-game-panel" class="card-inner game-panel">
+          <h3 id="online-game-title">Pick a game mode</h3>
+          <p id="online-game-description" class="muted">
+            Select Lightning Round, Capture The Flag, or Quiz Swap to see instructions and start a game.
+          </p>
+
+          <p id="online-game-timer" class="game-timer"></p>
+          <p id="online-game-status" class="game-status"></p>
+
+          <div id="online-game-question" class="online-question"></div>
+          <div id="online-game-options" class="online-options"></div>
+
+          <button id="online-game-start" class="btn" style="margin-top:8px;">
+            Start game
+          </button>
+        </div>
+
+        <p class="muted small-link">
+          Scores are stored only for this browser session as part of the prototype.
+        </p>
+
+        <button class="btn" onclick="showView('home')">Back to Home</button>
+      </section>
+    </section>
+
+    <!-- ========= OFFLINE PLAY ========= -->
+    <section id="view-offline" class="view">
+      <section class="card">
+        <div class="top-nav">
+          <button class="top-nav-back" onclick="showView('home')">←</button>
+          <div class="top-nav-icons">
+            <span>🎲</span><span>🧑‍🏫</span><span>👥</span>
+          </div>
+        </div>
+
+        <h2 class="card-heading">Offline Play</h2>
+
+        <p>
+          Offline Play supports activities that can run without devices. Use the prompts below to
+          guide classroom or group discussions.
+        </p>
+
+        <div class="list-stack">
+          <button class="list-row offline-row" data-offline-game="solo">
+            <div>
+              <div class="game-row-title">Solo Speed Drill</div>
+              <div class="game-row-sub">
+                60‑second quick‑fire questions you can ask out loud.
+              </div>
+            </div>
+            <span class="badge">🏃‍♀️</span>
+          </button>
+
+          <button class="list-row offline-row" data-offline-game="scenario">
+            <div>
+              <div class="game-row-title">Scenario Simulator</div>
+              <div class="game-row-sub">
+                Short situations for groups to discuss and decide what they would do.
+              </div>
+            </div>
+            <span class="badge">🎭</span>
+          </button>
+
+          <button class="list-row offline-row" data-offline-game="threatspotter">
+            <div>
+              <div class="game-row-title">Threat Spotter</div>
+              <div class="game-row-sub">
+                Identify risks and protective actions from a quick description.
+              </div>
+            </div>
+            <span class="badge">👀</span>
+          </button>
+        </div>
+
+        <div id="offline-game-panel" class="card-inner game-panel">
+          <h3 id="offline-game-title">Choose an activity</h3>
+          <p id="offline-game-description" class="muted">
+            Select Solo Speed Drill, Scenario Simulator or Threat Spotter to generate a prompt.
+          </p>
+
+          <div id="offline-game-prompt" class="offline-prompt"></div>
+
+          <button id="offline-new-prompt" class="btn" style="margin-top:8px;">
+            New prompt
+          </button>
+        </div>
+
+        <p class="muted small-link">
+          These prompts are examples only. Tutors can adapt them to their own groups and lessons.
+        </p>
+
+        <button class="btn" onclick="showView('home')">Back to Home</button>
+      </section>
+    </section>
+
+    <!-- ========= COMMUNITY CHALLENGES ========= -->
+    <section id="view-community" class="view">
+      <section class="card">
+        <div class="top-nav">
+          <button class="top-nav-back" onclick="showView('home')">←</button>
+          <div class="top-nav-icons">
+            <span>🤝</span><span>🏅</span><span>🧩</span>
+          </div>
+        </div>
+
+        <h2 class="card-heading">Community Challenges</h2>
+
+        <p>
+          Community Challenges are shared activities that whole groups can attempt together.
+        </p>
+
+        <ol>
+          <li>Choose a challenge theme, for example “strong passwords” or “spot the scam”.</li>
+          <li>Agree on a time limit and scoring method.</li>
+          <li>Run the challenge and record scores, reflections and improvement ideas.</li>
+          <li>Share successful challenges in the Community Forums or Admin Hub.</li>
+        </ol>
+
+        <button class="btn" onclick="showView('home')">Back to Home</button>
+      </section>
+    </section>
+
+    <!-- ========= GAUGE MY LEVEL ========= -->
+    <section id="view-gauge" class="view">
+      <section class="card">
+        <div class="top-nav">
+          <button class="top-nav-back" onclick="showView('home')">←</button>
+          <div class="top-nav-icons">
+            <span>📊</span><span>🎯</span><span>⭐</span>
+          </div>
+        </div>
+
+        <h2 class="card-heading">Gauge My Level</h2>
+
+        <p>
+          Gauge My Level explains how the XP bar and levels on the home screen relate to learning progress.
+        </p>
+
+        <ul>
+          <li><strong>Level 1 – Getting started:</strong> beginning to recognise everyday risks.</li>
+          <li><strong>Level 2 – Building confidence:</strong> applying advice in real situations.</li>
+          <li><strong>Level 3 – Independent user:</strong> spotting most suspicious activity independently.</li>
+          <li><strong>Level 4 – Emerging specialist:</strong> ready for more technical study or projects.</li>
+        </ul>
+
+        <p class="muted">
+          In the full build, this page would host an interactive diagnostic quiz that awards XP automatically.
+        </p>
+
+        <button class="btn" onclick="showView('home')">Back to Home</button>
+      </section>
+    </section>
+
+    <!-- ========= CERTIFICATION HUB (MAIN) ========= -->
+    <section id="view-cert" class="view">
+      <section class="card">
+        <div class="top-nav">
+          <button class="top-nav-back" onclick="showView('home')">←</button>
+          <div class="top-nav-icons">
+            <span>🎓</span><span>📚</span><span>⭐</span>
+          </div>
+        </div>
+
+        <h2 class="card-heading">Certification Hub</h2>
+
+        <p>
+          Browse example routes into cyber security. Choose a level to see more detail.
+        </p>
+
+        <div class="list-stack">
+          <button class="list-row cert-link" data-cert="beginner">
+            <span>Beginner certifications</span>
+            <span class="list-arrow">›</span>
+          </button>
+          <button class="list-row cert-link" data-cert="intermediate">
+            <span>Intermediate certifications</span>
+            <span class="list-arrow">›</span>
+          </button>
+          <button class="list-row cert-link" data-cert="advanced">
+            <span>Advanced certifications</span>
+            <span class="list-arrow">›</span>
+          </button>
+        </div>
+
+        <p class="muted small-link">
+          Routes shown here are examples only and will differ by country and provider.
+        </p>
+
+        <button class="btn" onclick="showView('home')">Back to Home</button>
+      </section>
+    </section>
+
+    <!-- ========= CERT – BEGINNER ========= -->
+    <section id="view-cert-beginner" class="view">
+      <section class="card">
+        <div class="top-nav">
+          <button class="top-nav-back" onclick="showView('cert')">←</button>
+          <div class="top-nav-icons">
+            <span>🎓</span><span>1️⃣</span><span>📘</span>
+          </div>
+        </div>
+
+        <h2 class="card-heading">Beginner certifications</h2>
+
+        <p>
+          Suitable for learners who are new to cyber security and want to build confidence with
+          core digital safety skills.
+        </p>
+
+        <ul>
+          <li>Entry‑level digital skills or IT user qualifications.</li>
+          <li>Short online courses about staying safe online and recognising scams.</li>
+          <li>Badges or awards offered by schools, colleges or youth organisations.</li>
+        </ul>
+
+        <p class="muted small-link">
+          These courses focus on safe everyday behaviour rather than deep technical topics.
+        </p>
+
+        <button class="btn" onclick="showView('cert')">Back to Certification Hub</button>
+      </section>
+    </section>
+
+    <!-- ========= CERT – INTERMEDIATE ========= -->
+    <section id="view-cert-intermediate" class="view">
+      <section class="card">
+        <div class="top-nav">
+          <button class="top-nav-back" onclick="showView('cert')">←</button>
+          <div class="top-nav-icons">
+            <span>🎓</span><span>2️⃣</span><span>📙</span>
+          </div>
+        </div>
+
+        <h2 class="card-heading">Intermediate certifications</h2>
+
+        <p>
+          For learners who already understand the basics and want to explore technical ideas such
+          as networking, coding and systems.
+        </p>
+
+        <ul>
+          <li>College or sixth‑form pathways that combine networking, programming and security.</li>
+          <li>Vendor‑neutral certificates that introduce general cyber security principles.</li>
+          <li>Project‑based programmes where learners investigate real‑world case studies.</li>
+        </ul>
+
+        <p class="muted small-link">
+          These routes often prepare learners for apprenticeships or higher‑level study.
+        </p>
+
+        <button class="btn" onclick="showView('cert')">Back to Certification Hub</button>
+      </section>
+    </section>
+
+    <!-- ========= CERT – ADVANCED ========= -->
+    <section id="view-cert-advanced" class="view">
+      <section class="card">
+        <div class="top-nav">
+          <button class="top-nav-back" onclick="showView('cert')">←</button>
+          <div class="top-nav-icons">
+            <span>🎓</span><span>3️⃣</span><span>📗</span>
+          </div>
+        </div>
+
+        <h2 class="card-heading">Advanced certifications</h2>
+
+        <p>
+          For learners considering cyber security as a career and ready for in‑depth technical work.
+        </p>
+
+        <ul>
+          <li>Specialist degrees or higher apprenticeships focusing on cyber security.</li>
+          <li>Professional exams linked to roles such as security analyst or penetration tester.</li>
+          <li>Programmes that include workplace experience or simulated incident response.</li>
+        </ul>
+
+        <p class="muted small-link">
+          Learners should discuss options with a tutor or careers adviser before choosing an advanced route.
+        </p>
+
+        <button class="btn" onclick="showView('cert')">Back to Certification Hub</button>
+      </section>
+    </section>
+
+    <!-- ========= CUSTOM COMMUNITY GAME ========= -->
+    <section id="view-custom" class="view">
+      <section class="card">
+        <div class="top-nav">
+          <button class="top-nav-back" onclick="showView('home')">←</button>
+          <div class="top-nav-icons">
+            <span>🎲</span><span>🧠</span><span>⭐</span>
+          </div>
+        </div>
+
+        <h2 class="card-heading">Custom Community Game</h2>
+
+        <p>
+          Use this page to design your own learning games, mirroring the “Custom Community Game”
+          layout in the wireframe.
+        </p>
+
+        <h3>Plan your game</h3>
+        <ul>
+          <li>Choose a focus: passwords, phishing, safe sharing, or another topic.</li>
+          <li>Decide the format: quiz, scavenger hunt, card game, or role‑play.</li>
+          <li>Set a simple scoring system so players know how to win.</li>
+          <li>Record what worked well and what to change next time.</li>
+        </ul>
+
+        <p class="muted">
+          In a later version these designs could be stored in an Admin Hub library.
+        </p>
+
+        <button class="btn" onclick="showView('home')">Back to Home</button>
+      </section>
+    </section>
+
+    <!-- ========= COMMUNITY FORUMS ========= -->
+    <section id="view-forums" class="view">
+      <section class="card">
+        <div class="top-nav">
+          <button class="top-nav-back" onclick="showView('home')">←</button>
+          <div class="top-nav-icons">
+            <span>💬</span><span>🔍</span><span>⭐</span>
+          </div>
+        </div>
+
+        <h2 class="card-heading">Community Forums</h2>
+
+        <label class="field-label">
+          Search chats…
+          <input type="text" placeholder="Search forums, topics or classmates…" />
+        </label>
+
+        <div class="list-stack">
+          <button class="list-row">
+            <span>Chat 1</span>
+            <span class="list-arrow">›</span>
+          </button>
+          <button class="list-row">
+            <span>Chat 2</span>
+            <span class="list-arrow">›</span>
+          </button>
+          <button class="list-row">
+            <span>Chat 3</span>
+            <span class="list-arrow">›</span>
+          </button>
+        </div>
+
+        <p class="muted">Saved forums</p>
+        <div class="list-stack">
+          <button class="list-row">
+            <span>Saved Forum 1</span>
+            <span class="list-arrow">›</span>
+          </button>
+          <button class="list-row">
+            <span>Saved Forum 2</span>
+            <span class="list-arrow">›</span>
+          </button>
+          <button class="list-row">
+            <span>Saved Forum 3</span>
+            <span class="list-arrow">›</span>
+          </button>
+        </div>
+
+        <p class="muted small-link">Explore the forums further ➜</p>
+
+        <button class="btn" onclick="showView('home')">Back to Home</button>
+      </section>
+    </section>
+
+    <!-- ========= SOFTWARE CENTER ========= -->
+    <section id="view-software" class="view">
+      <section class="card">
+        <div class="top-nav">
+          <button class="top-nav-back" onclick="showView('home')">←</button>
+          <div class="top-nav-icons">
+            <span>🖥️</span><span>🛡️</span><span>💾</span>
+          </div>
+        </div>
+
+        <h2 class="card-heading">Software Center</h2>
+
+        <p>
+          Welcome to the Software Center, your overview of tools that support good cyber hygiene.
+        </p>
+
+        <div class="card-inner">
+          <p><strong>Protection tools:</strong> antivirus and endpoint protection help detect malicious files.</p>
+          <p><strong>Network controls:</strong> firewalls manage which traffic is allowed in or out.</p>
+          <p><strong>Password management:</strong> password managers store long, unique passwords securely.</p>
+          <p><strong>Backup and recovery:</strong> back‑up tools protect important files if something goes wrong.</p>
+        </div>
+
+        <p class="muted small-link">Linked to: Software Hub in Admin view.</p>
+
+        <button class="btn" onclick="showView('home')">Back to Home</button>
+      </section>
+    </section>
+
+    <!-- ========= THREAT DATABASE ========= -->
+    <section id="view-threats" class="view">
+      <section class="card">
+        <div class="top-nav">
+          <button class="top-nav-back" onclick="showView('home')">←</button>
+          <div class="top-nav-icons">
+            <span>🛡️</span><span>⚠️</span><span>📚</span>
+          </div>
+        </div>
+
+        <h2 class="card-heading">Cyber Threat Database</h2>
+
+        <p class="muted">
+          Tap a category to review different attack types in plain English.
+        </p>
+
+        <div class="topic-grid">
+          <button class="topic-pill">Phishing</button>
+          <button class="topic-pill">Malware &amp; viruses</button>
+          <button class="topic-pill">Ransomware</button>
+          <button class="topic-pill">Social engineering</button>
+        </div>
+
+        <div class="card-inner">
+          <h3>Example: Phishing</h3>
+          <p>
+            Fraudulent messages that pretend to be from a trusted source, often asking you to click a link or
+            confirm details.
+          </p>
+          <ul>
+            <li>Check the sender address and link before responding.</li>
+            <li>Be cautious of time pressure or threats.</li>
+            <li>Use official websites and apps instead of links in messages.</li>
+          </ul>
+        </div>
+
+        <p class="muted small-link">Linked to: Cyber Threat Database Hub in Admin view.</p>
+
+        <button class="btn" onclick="showView('home')">Back to Home</button>
+      </section>
+    </section>
+
+    <!-- ========= FAVOURITES ========= -->
+    <section id="view-favorites" class="view">
+      <section class="card">
+        <div class="top-nav">
+          <button class="top-nav-back" onclick="showView('home')">←</button>
+          <div class="top-nav-icons">
+            <span>⭐</span><span>🎮</span><span>📚</span>
+          </div>
+        </div>
+
+        <h2 class="card-heading">Favorites</h2>
+
+        <p class="muted">Quick links to activities you use most often.</p>
+
+        <h3 class="section-label">Play</h3>
+        <div class="list-stack">
+          <button class="list-row">
+            <span>Lightning Round</span>
+            <span class="list-arrow">›</span>
+          </button>
+        </div>
+
+        <h3 class="section-label">Share</h3>
+        <div class="list-stack">
+          <button class="list-row">
+            <span>Class Chat 1</span>
+            <span class="list-arrow">›</span>
+          </button>
+        </div>
+
+        <h3 class="section-label">Learn</h3>
+        <div class="list-stack">
+          <button class="list-row">
+            <span>Beginner course: Cryptography basics</span>
+            <span class="list-arrow">›</span>
+          </button>
+          <button class="list-row">
+            <span>Custom Community Game 1</span>
+            <span class="list-arrow">›</span>
+          </button>
+          <button class="list-row">
+            <span>Custom Community Game 2</span>
+            <span class="list-arrow">›</span>
+          </button>
+        </div>
+
+        <button class="btn" onclick="showView('home')">Back to Home</button>
+      </section>
+    </section>
+
+    <!-- ========= SETTINGS ========= -->
+    <section id="view-settings" class="view">
+      <section class="card">
+        <div class="top-nav">
+          <button class="top-nav-back" onclick="showView('home')">←</button>
+          <div class="top-nav-icons">
+            <span>👤</span><span>⚙️</span><span>🔒</span>
+          </div>
+        </div>
+
+        <div class="settings-avatar">
+          <div class="settings-avatar-circle"></div>
+          <p class="settings-name">John Smith<span class="settings-role"> (Ethical Hacker)</span></p>
+        </div>
+
+        <div class="settings-menu">
+          <button class="settings-item" data-view="adminhub">
+            <span>Admin</span>
+            <span class="list-arrow">›</span>
+          </button>
+          <button class="settings-item" data-view="account">
+            <span>Account</span>
+            <span class="list-arrow">›</span>
+          </button>
+          <button class="settings-item" data-view="privacy">
+            <span>Privacy Policy</span>
+            <span class="list-arrow">›</span>
+          </button>
+          <button class="settings-item" data-view="preferences">
+            <span>Preferences</span>
+            <span class="list-arrow">›</span>
+          </button>
+          <button class="settings-item" data-view="feedback">
+            <span>Contact / Feedback</span>
+            <span class="list-arrow">›</span>
+          </button>
+          <button id="logout-btn" class="settings-item settings-item--danger">
+            <span>Sign Out</span>
+            <span class="list-arrow">›</span>
+          </button>
+        </div>
+
+        <button class="btn" onclick="showView('home')">Back to Home</button>
+      </section>
+    </section>
+
+    <!-- ========= ADMIN HUB ========= -->
+    <section id="view-adminhub" class="view">
+      <section class="card">
+        <div class="top-nav">
+          <button class="top-nav-back" onclick="showView('settings')">←</button>
+          <div class="top-nav-icons">
+            <span>🧑‍💻</span><span>📊</span><span>⚙️</span>
+          </div>
+        </div>
+
+        <h2 class="card-heading">Admin Hub</h2>
+
+        <p class="muted">
+          Central hub for managing community content, based on your wireframe.
+        </p>
+
+        <div class="admin-grid">
+          <button class="admin-tile" data-view="admin-forums">
+            <strong>Community Forums Hub</strong>
+            <span>Manage chats, saved forums and moderation tasks.</span>
+          </button>
+          <button class="admin-tile" data-view="admin-feed">
+            <strong>Community Feed</strong>
+            <span>Post announcements and highlight new activities.</span>
+          </button>
+          <button class="admin-tile" data-view="admin-directory">
+            <strong>Member Directory</strong>
+            <span>Overview of registered learners and roles.</span>
+          </button>
+          <button class="admin-tile" data-view="admin-pages">
+            <strong>Page Management</strong>
+            <span>Choose which sections of CYB are visible.</span>
+          </button>
+          <button class="admin-tile" data-view="admin-software">
+            <strong>Software Hub</strong>
+            <span>Curate the software library linked to Software Center.</span>
+          </button>
+          <button class="admin-tile" data-view="admin-quiz">
+            <strong>Quiz Hub</strong>
+            <span>Build and manage quizzes used in Online Play.</span>
+          </button>
+          <button class="admin-tile" data-view="admin-threatdb">
+            <strong>Cyber Threat Database Hub</strong>
+            <span>Manage threat entries shown in the learner view.</span>
+          </button>
+        </div>
+
+        <p class="muted">
+          For the prototype these tiles describe functionality rather than connecting to a live admin system.
+        </p>
+
+        <button class="btn" onclick="showView('settings')">Back to Settings</button>
+      </section>
+    </section>
+
+    <!-- ========= ADMIN – COMMUNITY FORUMS HUB ========= -->
+    <section id="view-admin-forums" class="view">
+      <section class="card">
+        <div class="top-nav">
+          <button class="top-nav-back" onclick="showView('adminhub')">←</button>
+          <div class="top-nav-icons">
+            <span>💬</span><span>⭐</span><span>⚠️</span>
+          </div>
+        </div>
+
+        <h2 class="card-heading">Community Forums Hub</h2>
+
+        <p class="muted">
+          Overview of forum spaces, matching the Community Forums learner page.
+        </p>
+
+        <div class="card-inner">
+          <h3>Active forums</h3>
+          <ul>
+            <li>Class Chat 1 – 32 members – last post: 5 min ago.</li>
+            <li>New to cyber security – 18 members – last post: today.</li>
+            <li>Game design ideas – 12 members – last post: yesterday.</li>
+          </ul>
+        </div>
+
+        <div class="card-inner">
+          <h3>Admin tools</h3>
+          <ul>
+            <li>Pin or unpin important threads.</li>
+            <li>Archive old chats while keeping a read‑only copy.</li>
+            <li>Report and remove inappropriate messages.</li>
+          </ul>
+        </div>
+
+        <button class="btn" onclick="showView('adminhub')">Back to Admin Hub</button>
+      </section>
+    </section>
+
+    <!-- ========= ADMIN – COMMUNITY FEED ========= -->
+    <section id="view-admin-feed" class="view">
+      <section class="card">
+        <div class="top-nav">
+          <button class="top-nav-back" onclick="showView('adminhub')">←</button>
+          <div class="top-nav-icons">
+            <span>📣</span><span>⭐</span><span>📰</span>
+          </div>
+        </div>
+
+        <h2 class="card-heading">Community Feed</h2>
+
+        <div class="card-inner">
+          <h3>Upcoming posts</h3>
+          <ul>
+            <li>Weekly “Password Clinic” reminder.</li>
+            <li>New Quick Facts topic: Staying safe on public Wi‑Fi.</li>
+            <li>Announcement: Class challenge results.</li>
+          </ul>
+        </div>
+
+        <div class="card-inner">
+          <h3>Post composer (prototype)</h3>
+          <label class="field-label">
+            Title
+            <input type="text" placeholder="e.g. New challenge: Spot the scam" />
+          </label>
+          <label class="field-label">
+            Message
+            <textarea rows="3" placeholder="Write a short announcement for learners…"></textarea>
+          </label>
+          <p class="muted small-link">
+            In a live system this would schedule and publish posts to the learner feed.
+          </p>
+        </div>
+
+        <button class="btn" onclick="showView('adminhub')">Back to Admin Hub</button>
+      </section>
+    </section>
+
+    <!-- ========= ADMIN – MEMBER DIRECTORY ========= -->
+    <section id="view-admin-directory" class="view">
+      <section class="card">
+        <div class="top-nav">
+          <button class="top-nav-back" onclick="showView('adminhub')">←</button>
+          <div class="top-nav-icons">
+            <span>👥</span><span>🔍</span><span>⭐</span>
+          </div>
+        </div>
+
+        <h2 class="card-heading">Member Directory</h2>
+
+        <p class="muted">
+          Example view of learners and roles. Data here is sample only.
+        </p>
+
+        <div class="card-inner">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Level</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>John Smith</td><td>Learner</td><td>3</td></tr>
+              <tr><td>Ayesha Khan</td><td>Learner</td><td>2</td></tr>
+              <tr><td>Chris Taylor</td><td>Teacher</td><td>–</td></tr>
+              <tr><td>Maya Patel</td><td>Learner</td><td>1</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="muted small-link">
+          A full system would allow exporting data and filtering by class or group.
+        </p>
+
+        <button class="btn" onclick="showView('adminhub')">Back to Admin Hub</button>
+      </section>
+    </section>
+
+    <!-- ========= ADMIN – PAGE MANAGEMENT ========= -->
+    <section id="view-admin-pages" class="view">
+      <section class="card">
+        <div class="top-nav">
+          <button class="top-nav-back" onclick="showView('adminhub')">←</button>
+          <div class="top-nav-icons">
+            <span>📄</span><span>✅</span><span>🚫</span>
+          </div>
+        </div>
+
+        <h2 class="card-heading">Page Management</h2>
+
+        <p class="muted">
+          Choose which sections are visible to learners in this class group.
+        </p>
+
+        <div class="card-inner">
+          <label class="toggle-row">
+            <input type="checkbox" checked />
+            <span>Quick Facts</span>
+          </label>
+          <label class="toggle-row">
+            <input type="checkbox" checked />
+            <span>Online Play</span>
+          </label>
+          <label class="toggle-row">
+            <input type="checkbox" checked />
+            <span>Offline Play</span>
+          </label>
+          <label class="toggle-row">
+            <input type="checkbox" checked />
+            <span>Community Forums</span>
+          </label>
+          <label class="toggle-row">
+            <input type="checkbox" checked />
+            <span>Cyber Threat Database</span>
+          </label>
+          <label class="toggle-row">
+            <input type="checkbox" />
+            <span>Advanced Certification Hub</span>
+          </label>
+        </div>
+
+        <p class="muted small-link">
+          In a full build, these switches would write to a database and change the learner navigation automatically.
+        </p>
+
+        <button class="btn" onclick="showView('adminhub')">Back to Admin Hub</button>
+      </section>
+    </section>
+
+    <!-- ========= ADMIN – SOFTWARE HUB ========= -->
+    <section id="view-admin-software" class="view">
+      <section class="card">
+        <div class="top-nav">
+          <button class="top-nav-back" onclick="showView('adminhub')">←</button>
+          <div class="top-nav-icons">
+            <span>🖥️</span><span>⬆️</span><span>📂</span>
+          </div>
+        </div>
+
+        <h2 class="card-heading">Software Hub</h2>
+
+        <p class="muted">
+          Manage the software options that appear in the learner Software Center.
+        </p>
+
+        <div class="card-inner">
+          <h3>Current library</h3>
+          <ul>
+            <li>Example AV – classroom antivirus licence.</li>
+            <li>Secure Browser – locked‑down exam browser.</li>
+            <li>Password Vault – recommended password manager.</li>
+          </ul>
+        </div>
+
+        <div class="card-inner">
+          <h3>Add a new tool (prototype)</h3>
+          <label class="field-label">
+            Tool name
+            <input type="text" placeholder="e.g. Network Monitor" />
+          </label>
+          <label class="field-label">
+            Category
+            <input type="text" placeholder="Protection / Monitoring / Backup…" />
+          </label>
+        </div>
+
+        <button class="btn" onclick="showView('adminhub')">Back to Admin Hub</button>
+      </section>
+    </section>
+
+    <!-- ========= ADMIN – QUIZ HUB ========= -->
+    <section id="view-admin-quiz" class="view">
+      <section class="card">
+        <div class="top-nav">
+          <button class="top-nav-back" onclick="showView('adminhub')">←</button>
+          <div class="top-nav-icons">
+            <span>❓</span><span>✅</span><span>📊</span>
+          </div>
+        </div>
+
+        <h2 class="card-heading">Quiz Hub</h2>
+
+        <p class="muted">
+          Design quizzes that appear in Online Play modes such as Lightning Round.
+        </p>
+
+        <div class="card-inner">
+          <h3>Example question bank</h3>
+          <ul>
+            <li>Passwords – 12 questions.</li>
+            <li>Phishing – 10 questions.</li>
+            <li>Public Wi‑Fi – 6 questions.</li>
+          </ul>
+        </div>
+
+        <div class="card-inner">
+          <h3>Create a new question (mock‑up)</h3>
+          <label class="field-label">
+            Question
+            <textarea rows="2" placeholder="Type the question learners will see…"></textarea>
+          </label>
+          <label class="field-label">
+            Correct answer
+            <input type="text" placeholder="Correct answer" />
+          </label>
+          <label class="field-label">
+            Alternative answers
+            <textarea rows="2" placeholder="Other options to display…"></textarea>
+          </label>
+        </div>
+
+        <button class="btn" onclick="showView('adminhub')">Back to Admin Hub</button>
+      </section>
+    </section>
+
+    <!-- ========= ADMIN – CYBER THREAT DATABASE HUB ========= -->
+    <section id="view-admin-threatdb" class="view">
+      <section class="card">
+        <div class="top-nav">
+          <button class="top-nav-back" onclick="showView('adminhub')">←</button>
+          <div class="top-nav-icons">
+            <span>🛡️</span><span>📚</span><span>⚠️</span>
+          </div>
+        </div>
+
+        <h2 class="card-heading">Cyber Threat Database Hub</h2>
+
+        <p class="muted">
+          High‑level admin view of the threats that appear on the learner Cyber Threat Database page.
+        </p>
+
+        <div class="card-inner">
+          <h3>Threat categories</h3>
+          <ul>
+            <li>Phishing – 4 example descriptions.</li>
+            <li>Malware &amp; viruses – 3 entries.</li>
+            <li>Ransomware – 2 entries.</li>
+            <li>Social engineering – 3 entries.</li>
+          </ul>
+        </div>
+
+        <div class="card-inner">
+          <h3>Add or edit entries (prototype)</h3>
+          <label class="field-label">
+            Threat name
+            <input type="text" placeholder="e.g. Spear‑phishing email" />
+          </label>
+          <label class="field-label">
+            Summary
+            <textarea rows="2" placeholder="Short explanation to show learners…"></textarea>
+          </label>
+        </div>
+
+        <button class="btn" onclick="showView('adminhub')">Back to Admin Hub</button>
+      </section>
+    </section>
+
+    <!-- ========= ACCOUNT ========= -->
+    <section id="view-account" class="view">
+      <section class="card">
+        <div class="top-nav">
+          <button class="top-nav-back" onclick="showView('settings')">←</button>
+          <div class="top-nav-icons">
+            <span>👤</span><span>🔐</span><span>📧</span>
+          </div>
+        </div>
+
+        <h2 class="card-heading">Account</h2>
+
+        <p class="muted">
+          Summary of account information stored on this device only.
+        </p>
+
+        <label class="field-label">
+          Email address
+          <input type="email" value="johnsmith@example.com" />
+        </label>
+
+        <label class="field-label">
+          Password
+          <input type="password" value="••••••••" />
+        </label>
+
+        <label class="field-label">
+          Two‑factor authentication
+          <input type="text" value="Enabled (example)" />
+        </label>
+
+        <p class="muted small-link">
+          In a live service this page would be connected to secure account management tools.
+        </p>
+
+        <button class="btn" onclick="showView('settings')">Back to Settings</button>
+      </section>
+    </section>
+
+    <!-- ========= PRIVACY POLICY ========= -->
+    <section id="view-privacy" class="view">
+      <section class="card">
+        <div class="top-nav">
+          <button class="top-nav-back" onclick="showView('settings')">←</button>
+          <div class="top-nav-icons">
+            <span>🔒</span><span>📜</span><span>ℹ️</span>
+          </div>
+        </div>
+
+        <h2 class="card-heading">Privacy Policy</h2>
+
+        <h3>How we protect your data</h3>
+        <p>
+          This prototype is designed for classroom use and stores data locally in the browser.
+          It does not send information to a remote server.
+        </p>
+
+        <h3>What data do we collect?</h3>
+        <ul>
+          <li>Basic profile information such as an email address.</li>
+          <li>Progress data such as XP and level.</li>
+          <li>Locally‑saved preferences for learning activities.</li>
+        </ul>
+
+        <h3>Your control</h3>
+        <p>
+          You can clear your browser storage at any time to remove the data created by this prototype.
+          Any real deployment would provide fuller options and contact details.
+        </p>
+
+        <button class="btn" onclick="showView('settings')">Back to Settings</button>
+      </section>
+    </section>
+
+    <!-- ========= PREFERENCES ========= -->
+    <section id="view-preferences" class="view">
+      <section class="card">
+        <div class="top-nav">
+          <button class="top-nav-back" onclick="showView('settings')">←</button>
+          <div class="top-nav-icons">
+            <span>⚙️</span><span>⏰</span><span>📈</span>
+          </div>
+        </div>
+
+        <h2 class="card-heading">Preferences</h2>
+
+        <p class="muted">Example sliders and options, matching the wireframe layout.</p>
+
+        <label class="field-label">
+          Study frequency
+          <input type="range" min="1" max="5" value="3" />
+        </label>
+
+        <label class="field-label">
+          Challenge difficulty
+          <input type="range" min="1" max="5" value="2" />
+        </label>
+
+        <label class="field-label">
+          Reminder level
+          <input type="range" min="1" max="5" value="4" />
+        </label>
+
+        <p class="muted small-link">
+          In a full build, these settings would adjust notifications and recommended activities.
+        </p>
+
+        <button class="btn" onclick="showView('settings')">Back to Settings</button>
+      </section>
+    </section>
+
+    <!-- ========= FEEDBACK ========= -->
+    <section id="view-feedback" class="view">
+      <section class="card">
+        <div class="top-nav">
+          <button class="top-nav-back" onclick="showView('settings')">←</button>
+          <div class="top-nav-icons">
+            <span>✉️</span><span>💬</span><span>⭐</span>
+          </div>
+        </div>
+
+        <h2 class="card-heading">Feedback</h2>
+
+        <p class="muted">Tell us what is working well and what could be improved.</p>
+
+        <label class="field-label">
+          What is this regarding?
+          <input type="text" placeholder="e.g. Quick Facts, quizzes, forums…" />
+        </label>
+
+        <label class="field-label">
+          Enter your feedback below
+          <textarea rows="4" placeholder="Type your feedback or questions here…"></textarea>
+        </label>
+
+        <div class="button-row">
+          <button class="btn btn--ghost" onclick="showView('settings')">Cancel</button>
+          <button class="btn">Submit (prototype only)</button>
+        </div>
+
+        <button class="btn" style="margin-top:8px" onclick="showView('settings')">Back to Settings</button>
+      </section>
+    </section>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
