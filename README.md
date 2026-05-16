@@ -14,7 +14,7 @@ No backend, no build step. Everything runs in the browser using `localStorage` f
 
 ## How to run it
 
-Clone the repo and open `index.html` in a browser. That is it.
+Clone the repo and open `index.html` in a browser.
 
 ```bash
 git clone https://github.com/Abdulla-AlBassam/cyb.git
